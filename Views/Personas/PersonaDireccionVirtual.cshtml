@@ -1,0 +1,80 @@
+﻿@model IEnumerable<_4_EntityFramework.Models.Direccion>
+
+
+@{
+    ViewBag.Title = "Persona Direccion usando Virtual ó Lazy Loading en el modelo";
+}
+
+<h2>@ViewBag.Title</h2>
+<h4>Se están realizanado dos consultas una para los datos de persona y otro pra las direcciones.</h4>
+<hr />
+
+<div>
+    <h3>Desplegar El Objeto con ViewBag</h3>
+ 
+    <table class="table">
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Edad
+            </th>
+            <th>
+                Nacimiento
+            </th>
+            <th>
+                Direcciones
+            </th>
+        </tr>
+        <tr>
+            <td>
+                @ViewBag.PersonaId11.Id
+            </td>
+            <td>
+                @ViewBag.PersonaId11.Nombre
+            </td>
+            <td>
+                @ViewBag.PersonaId11.Edad
+            </td>
+            <td>
+                @ViewBag.PersonaId11.Nacimiento
+            </td>
+            <td>
+                <ul>
+                    @foreach (var item in Model)
+                    {
+                        <li>
+                            @item.Calle
+                        </li>
+                    }
+                </ul>
+
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<hr />
+<h3>Desplegar un objeto completon con Display</h3>
+<h4>Para dar formato con clases debemos usar un DisplayTemplate</h4>
+<h4>
+@Html.Display("PersonaId11")
+</h4>
+
+<hr />
+
+<h3>Direcciones las está enviado la vista en el model Direccion:</h3>
+<h4>Como es una lista la recorremos con un Foreach</h4>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            @item.Calle
+        </li>
+    }
+</ul>

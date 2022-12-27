@@ -1,0 +1,34 @@
+﻿@model IEnumerable<_4_EntityFramework.Models.SqlPeersonalizado.HombresMujers>
+
+@{
+    ViewBag.Title = "SqlPersonalizado";
+}
+
+<h2>SqlPersonalizado</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sexo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </th>
+       
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sexo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cantidad)
+        </td>
+    </tr>
+}
+
+</table>

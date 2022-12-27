@@ -1,0 +1,290 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Entity Framwork</h1>
+    <p class="lead">EntityFramework Code First.</p>
+    <p><a href="https://www.youtube.com/watch?v=_2yMZGIZOso&list=PL0kIvpOlieSNWR3YPSjh9P2p43SFnNBlB&index=46">Tutorial</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>ENTITY FRAMEWORK CODE FIRST:</h2>
+        <p>
+            Estas funciones son tanto para SQLServer como par otro motor de base de datos como mysql, Oracle.
+        </p>
+        <p>
+            enable-migrations:
+            Es un comando que indica que vamos a utilizar Entity Framawork con Code First.
+        </p>
+        <p>
+            Migrations-Configurations:
+            Podemos indicar que permita realizar los update-database libremente y también indicar que permita la perdida de datos
+            También agregar registros automáticamente usando el método seed.
+        </p>
+        <p><a class="btn btn-default" href="https://www.youtube.com/watch?v=_2yMZGIZOso&list=PL0kIvpOlieSNWR3YPSjh9P2p43SFnNBlB&index=46">Crear DB</a></p>
+        @Html.ActionLink("Code First", "Index", "Personas", null, new { @class = "btn btn-success" })
+    </div>
+    <hr />
+
+    <div class="col-md-4">
+        <h2>Funciones especiales del DbContex:</h2>
+        <h4>OnModelCreating:</h4>
+        <p>
+            Permite realizar cambios sobre los tipos de datos de los campos de las tablas. Que contengan el tipo de dato que se indicó.
+            en el ejemplo al momento de crear la base de datos se cambia el tipo de dato DateTime a DateTime2
+        </p>
+        <h4>ShouldValidateEntity:</h4>
+        <p>Activar que se pueda validar al momento de eliminar</p>
+        <h4>ValidateEntity:</h4>
+        <p>
+            En el ejemplo creamos una condicion que no permite Eliminar a un campos Edad < 18
+        </p>
+        <h4>Tutorial obtener mensaje de error:</h4>
+        <p><a class="btn btn-default" href="https://www.entityframeworktutorial.net/EntityFramework4.3/validate-entity-in-entity-framework.aspx">Tutorial</a></p>
+        <p><a class="btn btn-default" href="https://www.youtube.com/watch?v=cT4WCRKuJXs&list=PL0kIvpOlieSNWR3YPSjh9P2p43SFnNBlB&index=47">Funciones DbContext</a></p>
+        @Html.ActionLink("Funciones DbContext", "Index", "Personas", null, new { @class = "btn btn-success" })
+    </div>
+
+    <div class="col-md-4">
+        <h2>AddRange:</h2>
+        <p>
+            Insertando registros con Entity Framework:
+            Para agregar una lista o colección de registros.
+        </p>
+        <p><a class="btn btn-default" href="https://www.youtube.com/watch?v=t_8FY_cK7CE&list=PL0kIvpOlieSNWR3YPSjh9P2p43SFnNBlB&index=48">Video</a></p>
+        @Html.ActionLink("AddRange", "Index", "Personas", null, new { @class = "btn btn-success" })
+    </div>
+
+</div>
+<hr />
+
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Formas de Editar:</h2>
+        <p>
+            Estamos editando directamente los registros con Id 2 u 6
+        </p>
+        <p>
+            Método 1: Trae todo el objeto y lo actualiza
+            el primer registro que tenga el Id == 2
+        </p>
+        <p>
+            Método 2: Actualizacion Parcial
+            Solo vamos a Actualizar el campo Nombre el Edad no se debe Actualizar
+        </p>
+        <p><a class="btn btn-default" href="https://www.youtube.com/watch?v=1us3cmZssHg&list=PL0kIvpOlieSNWR3YPSjh9P2p43SFnNBlB&index=49">Video</a></p>
+        @Html.ActionLink("Formas de Editar", "Index", "Personas", null, new { @class = "btn btn-warning" })
+    </div>
+
+    <div class="col-md-4">
+        <h2>RemoveRange:</h2>
+        <p>
+            le enviamos una lista con los Id que vamos a eliminar
+            en este caso los Id maayores a 13
+        </p>
+
+        <p><a class="btn btn-default" href="https://www.youtube.com/watch?v=MYyqRBpd7Ic">Video</a></p>
+        @Html.ActionLink("RemoveRange", "Index", "Personas", null, new { @class = "btn btn-warning" })
+    </div>
+</div>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Seleccionar todas los Campos:</h2>
+        <p>
+            el controlador retonra una lista con todos los campos de la tabla.
+        </p>
+
+        <p><a class="btn btn-default" href="https://www.youtube.com/watch?v=MYyqRBpd7Ic">Video</a></p>
+        @Html.ActionLink("Todos los Campos", "AllCampos", "Personas", null, new { @class = "btn btn-primary" })
+    </div>
+
+    <div class="col-md-4">
+        <h2>Select:</h2>
+        <p>
+            Seleccinar un campo espesifico con select
+        </p>
+
+        <p><a class="btn btn-default" href="https://www.youtube.com/watch?v=MYyqRBpd7Ic">Video</a></p>
+        @Html.ActionLink("Select", "SelectCampo", "Personas", null, new { @class = "btn btn-primary" })
+    </div>
+
+    <div class="col-md-4">
+        <h2>Selecconar varios Campos Usando Objetos Anonimos</h2>
+        <p>
+            Debemos crear una clase que contenga solo los campos que vamos a utilizar en este caso Nombre y Edad.
+            creamos la clase modelo: PersonaNombreEdad.
+            para mapear la lista que devuelve el select a la Db.
+        </p>
+
+        <p><a class="btn btn-default" href="https://www.youtube.com/watch?v=DHVLoWcsm2c">Video</a></p>
+        @Html.ActionLink("Selec Varios Campos", "VariosCampos", "Personas", null, new { @class = "btn btn-primary" })
+    </div>
+</div>
+<hr />
+
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Selecconar varios Campos Proyectando hacia el modelo</h2>
+        <p>
+            seleccina varios campos pero no utiliza objeto anonimo, si no que proyecta sobre la misma clae
+            en este caso sobre el mismo modelo en que se realizo la consulta el modelo persona.
+        </p>
+
+        <p><a class="btn btn-default" href="https://www.youtube.com/watch?v=Ut9RNSohx0I&list=PL0kIvpOlieSNWR3YPSjh9P2p43SFnNBlB&index=51">Video</a></p>
+        @Html.ActionLink("Selec Campos Proyectado", "VariosCamposPersona", "Personas", null, new { @class = "btn btn-primary" })
+    </div>
+    <div class="col-md-4">
+        <h2>Llaves foráneas</h2>
+        <p>
+            Insertar un registro en la tabla Direcciones
+            También debemos agregar el id de una Persona en el campo Persona_Id de la FK.
+        </p>
+
+        <p><a class="btn btn-default" href="">Video</a></p>
+        @Html.ActionLink("Agregar Direccion y FK", "AgregarDireccionFK", "Personas", null, new { @class = "btn btn-primary" })
+    </div>
+    <div class="col-md-4">
+        <h2>Propiedades de navegación con Llaves foráneas:</h2>
+        <h2>Virtual en el modelo o Lazy loading:</h2>
+        <p>
+            Lazy loading:
+            Permite utilizar propiedades de navegación entre las propiedades
+            Utiliza, solamente cuando accedamos a ellas.
+            Virtual:
+            Para utilizarlo debemos indicar que es de forma virtual la propiedad del modelo.
+        </p>
+
+        <p><a class="btn btn-default" href="">Video</a></p>
+        @Html.ActionLink("Navegación Virtual Lazy Loading", "PersonaDireccionVirtual", "Personas", null, new { @class = "btn btn-primary" })
+    </div>
+</div>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Include Eager loading:</h2>
+        <p>
+            No utiliza virtual en el modelo.
+            Listar todos los registros con sus direcciones.
+            Utiliza un IEnumerable para la vista.
+        </p>
+
+        <p><a class="btn btn-default" href="https://www.youtube.com/watch?v=kOoGgP9iXxA&list=PL0kIvpOlieSNWR3YPSjh9P2p43SFnNBlB&index=53">Video</a></p>
+        @Html.ActionLink("Include listar Todos", "PersonaDireccionInclude", "Personas", null, new { @class = "btn btn-success" })
+    </div>
+    <div class="col-md-4">
+        <h2>Include Un Registro</h2>
+        <p>
+            No utiliza virtual en el modelo.
+            Listar todos los registros con sus direcciones.
+            No Utiliza un IEnumerable para la vista.
+        </p>
+
+        <p><a class="btn btn-default" href="https://www.youtube.com/watch?v=kOoGgP9iXxA&list=PL0kIvpOlieSNWR3YPSjh9P2p43SFnNBlB&index=53">Video</a></p>
+        @Html.ActionLink("Include Un Registro", "UnaPersonaInclude", "Personas", null, new { @class = "btn btn-success" })
+    </div>
+    <div class="col-md-4">
+        <h2>Obtener Campo y registro por su Direcion:</h2>
+        <p>
+            Usando virtual Lazy loading en el modelo.
+            Listar todos los campos de persona por medio de su direccion
+            ]Persona y Direccion son dos modelos tablas diferentes.
+        </p>
+
+        <p><a class="btn btn-default" href="https://www.youtube.com/watch?v=kOoGgP9iXxA&list=PL0kIvpOlieSNWR3YPSjh9P2p43SFnNBlB&index=54">Video</a></p>
+        @Html.ActionLink("Nombre por su Direccion", "ObtenerNombrePorDireccion", "Personas", null, new { @class = "btn btn-success" })
+    </div>
+</div>
+<hr />
+
+<div class="row">
+    <div class="col-md-3">
+        <h2>INNER JOIN CON OBJETO Y CLASE ANONIMA</h2>
+        <p>
+            Obtener el Employee y su tabajo con codigo JobCode == 1:
+            ANONIMO utilizamos una un objeto anomino y su clase para maperar los campos
+        </p>
+
+        <p><a class="btn btn-default" href="https://www.youtube.com/watch?v=htIm_Ryb0bA&list=PL0kIvpOlieSNWR3YPSjh9P2p43SFnNBlB&index=53">Video</a></p>
+        <p><a class="btn btn-default" href="https://www.youtube.com/watch?v=V3HVnBWO_b8">Video</a></p>
+        @Html.ActionLink("Trabajos", "Index", "Jobs", null, new { @class = "btn btn-warning" })
+        @Html.ActionLink("INNER JOIN", "OneEmployeeInnerJob", "Employees", null, new { @class = "btn btn-warning" })
+    </div>
+    <div class="col-md-3">
+        <h2>JOBS</h2>
+        <p>
+            Agregar nuevos trabajos
+        </p>
+        @Html.ActionLink("Trabajos", "Index", "Jobs", null, new { @class = "btn btn-warning" })
+    </div>
+    <div class="col-md-3">
+        <h2>GROUPJOIN CON OBJETO Y CLASE ANONIMA</h2>
+        <p>
+            GroupJoin devuelve los campos de la tabla Job de tipo IEnumerable,
+            Usamos una clase y objeto Anonimo para mapear los campos que se utilizarán de ambas tablas Employees y Jobs.
+        </p>
+        <p>
+            en el modelo Aninimo que mostrará los campos que serviran de listado debemos indicar los campos de tipo IEnumerable<>.
+            en este caso los campos de Job.
+        </p>
+        <p><a class="btn btn-default" href="https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.groupjoin?view=net-6.0">Tutorial</a></p>
+        @Html.ActionLink("GROUPJOIN", "GroupJoinEmployeeJob", "Employees", null, new { @class = "btn btn-warning" })
+    </div>
+    <div class="col-md-3">
+        <h2>GROUPJOIN CON OBJETO Y CLASE ANONIMA TODOS LOS REGISTROS</h2>
+        <p>
+            GroupJoin devuelve los campos de la tabla Job de tipo IEnumerable,
+            Usamos una clase y objeto Anonimo para mapear los campos que se utilizarán de ambas tablas Employees y Jobs.
+        </p>
+        <p>
+            en el modelo Aninimo que mostrará los campos que serviran de listado debemos indicar los campos de tipo IEnumerable<>.
+            en este caso los campos de Job.
+        </p>
+        <p><a class="btn btn-default" href="https://www.youtube.com/watch?v=htIm_Ryb0bA&list=PL0kIvpOlieSNWR3YPSjh9P2p43SFnNBlB&index=55">Video</a></p>
+        @Html.ActionLink("GROUPJOIN ALL", "GroupJoinAllEmployeeJob", "Employees", null, new { @class = "btn btn-success" })
+    </div>
+</div>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>CONSULTAS CON SQL PURO:</h2>
+        <h2>SELECT *</h2>
+        <p>
+            Seleccinar todos los campos de la tabla employees
+        </p>
+        <p><a class="btn btn-default" href="https://www.youtube.com/watch?v=3jJQmBe5sZg&list=PL0kIvpOlieSNWR3YPSjh9P2p43SFnNBlB&index=56">Video</a></p>
+        @Html.ActionLink("SELECT *", "SqlAllEmployees", "Employees", null, new { @class = "btn btn-primary" })
+    </div>
+    <div class="col-md-4">
+        <h2>CONSULTAS CON SQL PURO:</h2>
+        <h2>CONSULTA SQL USANDO PARAMETROS</h2>
+        <p>
+            Consulta SQL con paso de parametros e indicando el model de la consuta:
+            buscar al Employee con Id = 1:
+        </p>
+        <p><a class="btn btn-default" href="https://www.youtube.com/watch?v=3jJQmBe5sZg&list=PL0kIvpOlieSNWR3YPSjh9P2p43SFnNBlB&index=56">Video</a></p>
+        @Html.ActionLink("SQL PARAMETROS", "SqlParametros", "Employees", null, new { @class = "btn btn-primary" })
+    </div>
+    <div class="col-md-4">
+        <h2>CONSULTAS CON SQL PURO:</h2>
+        <h2>GROUP BY</h2>
+        <p>
+            en las consultas personalizadas podemos enviar los datos obtenido de un query de una tabla de la base de datos, la podemos enviar a un modelo clase externa con los campos de indiquemos,
+            esto nos servirá también para generar la vista.
+        </p>
+        <p>
+            En este ejemplo hacemos una consulta GROUP BY a la tabla de la base de datos Employees
+            Para agrupar los hombres y mujeres y mostrar la cantidad de cada uno.
+        </p>
+        <p><a class="btn btn-default" href="https://www.youtube.com/watch?v=3jJQmBe5sZg&list=PL0kIvpOlieSNWR3YPSjh9P2p43SFnNBlB&index=56">Video</a></p>
+        @Html.ActionLink("GROUP BY", "SqlPersonalizado", "Employees", null, new { @class = "btn btn-primary" })
+    </div>
+</div>
+<hr />

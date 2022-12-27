@@ -1,0 +1,58 @@
+﻿<!--NO SE USA UN IEnumerable para recorrerlo-->
+
+@model _4_EntityFramework.Models.Persona
+
+@{
+    ViewBag.Title = "Una Persona Include";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Devuleve un objeto un solo objeto persona, No se necesita un IEnumerable para recorrerlo.</h3>
+
+<div>
+    <h4>Persona</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nacimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nacimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Edad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Edad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direcciones)
+        </dt>
+
+            @for (int i = 0; i <= Model.Direcciones.Count - 1; i++)
+            {
+                <!--el campo Direcciones contien todos los campos de la tabla Direcion -->
+                <!--Elegimos cual necesitamos utilizar en este caso calle-->
+                <dd>@Html.DisplayFor(model => model.Direcciones[i].Calle)</dd>
+            }
+    </dl>
+
+
+</div>
+<p>
+ 
+    @Html.ActionLink("Back to List", "Index")
+</p>

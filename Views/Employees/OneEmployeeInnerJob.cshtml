@@ -1,0 +1,89 @@
+﻿@model _4_EntityFramework.Models.Anonimo.JobsInnerEmployeeAnonimo
+
+@{
+    ViewBag.Title = "INNER JOIN CON OBJETO Y CLASE ANONIMA:";
+}
+
+<h2>@ViewBag.Title</h2>
+<h3>Consulta INNER JOIN a las tablas Jobs y Employees CON JobCode = 1</h3>
+
+<div>
+    <h3>Campos de la tabla Employees</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ContractDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContractDate)
+        </dd>
+
+    </dl>
+    <hr />
+
+    <h3>Campos de la tabla Jobs </h3>
+    <p>el campo Employee de la tabla Jobs contiene todos los campos relacionados de la tabla Employee:</p>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.JobCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee)
+        </dd>
+    </dl>
+       
+
+   
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.JobCode }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

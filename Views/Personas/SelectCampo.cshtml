@@ -1,0 +1,33 @@
+﻿<!--Esta reciviendo una lista de tipo string-->
+@model List<string>
+
+@{
+    ViewBag.Title = "Seleciona unicamente el campo Nombre de la base de datos:";
+}
+
+<h3>@ViewBag.Title</h3>
+<h4>
+    El controlador realiza una consulta con Entity y envia a la vista una Lista de tipo String.
+</h4>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            Nombre:
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item
+            </td>
+        </tr>
+    }
+
+</table>

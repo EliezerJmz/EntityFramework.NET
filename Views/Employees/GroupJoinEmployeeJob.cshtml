@@ -1,0 +1,72 @@
+﻿@model _4_EntityFramework.Models.Anonimo.groupJoinAnonimo
+
+@{
+    ViewBag.Title = "GroupJoinEmployeeJob";
+}
+
+<h2>@ViewBag.Title</h2>
+<h3>GroupJoin devuelve los campos de la tabla Job de tipo IEnumerable</h3>
+<h4>Usamos una clase y objeto Anonimo para mapear los campos que se utilizarán de ambas tablas.</h4>
+
+<br />
+<p>Se está mostrando el empleado con id = 1</p>
+<div>
+    <h4>Employee</h4>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContractDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jobs)
+            </th>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.ContractDate)
+            </td>
+            <td>
+                <ul>
+                    @foreach (var item in Model.JobCode)
+                    {
+                        <li> @item </li>
+
+                    }
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    @foreach (var item in Model.Jobs)
+                    {
+                        <li> @item </li>
+                    }
+                </ul>
+            </td>
+        </tr>
+    </table>             
+</div>
+<hr />
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,53 @@
+﻿@model _4_EntityFramework.Models.Direccion
+
+@{
+    ViewBag.Title = "Obtener Nombre Por Medio de su Direccion";
+}
+
+<h2>@ViewBag.Title</h2>
+<hr />
+
+<h4>Recibimos solo el nombre por medio de un ViewBag</h4>
+
+<dl class="dl-horizontal">
+    <dt>
+        Nombre:
+    </dt>
+
+    <dd>
+        @ViewBag.nombre
+    </dd>
+</dl>
+<hr />
+
+<h4>Recibimos un modelo direccion y mostramos el nombre y demas campos por medio de su dirección</h4>
+<p>Nombre es un campo del modelo Persona y Calle, Edad Son campos del modelo Direcion</p>
+<p>Para tener acceso a un campo de otra tabla debemos agregar virtual al campo en el modelo, o usar include en la consulta del controlador.</p>
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.Persona.Nombre):
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Persona.Nombre)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Persona.Edad):
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Persona.Edad)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Calle):
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Calle)
+    </dd>
+</dl>
+<hr />
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CodigoDireccion }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

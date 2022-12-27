@@ -1,0 +1,41 @@
+﻿<!--indicamos que recibe el modelo PersonaNombreEdad-->
+@model IEnumerable<_4_EntityFramework.Models.Persona>
+
+@{
+    ViewBag.Title = "Selecionar unicamente los campo Nombre y Edad de la base de datos sin usar objeto anonimo:";
+}
+
+<h3>@ViewBag.Title</h3>
+<h4>
+    El controlador realiza una consulta con Entity y envia a la vista un objeto de tipo persona unicamente con los campos
+    que le indicamos Nombre Y edad.
+</h4>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table">
+    <tr>
+        <th>
+            Nombre:
+        </th>
+        <th>
+            Edad:
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Nombre
+            </td>
+            <td>
+                @item.Edad
+            </td>
+
+        </tr>
+    }
+
+</table>

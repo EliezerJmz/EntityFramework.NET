@@ -1,0 +1,28 @@
+﻿@model _4_EntityFramework.Models.Persona
+
+@{
+    ViewBag.Title = "Error al Eliminar:";
+}
+
+<div class="container">
+
+    <h2>@ViewBag.Title</h2>
+    <hr />
+
+    <h3>Campo:</h3>
+    <h4>@ViewBag.Campo</h4>
+
+    <h3>Mensaje:</h3>
+    <h4>@ViewBag.Mensaje</h4>
+
+    <hr />
+    <div>
+        @Html.ActionLink("Retornar a la Lista", "Index")
+    </div>
+
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
